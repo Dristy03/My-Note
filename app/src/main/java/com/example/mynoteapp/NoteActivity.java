@@ -2,17 +2,23 @@ package com.example.mynoteapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -27,6 +33,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import java.util.Date;
+import java.util.zip.Inflater;
 
 public class NoteActivity extends AppCompatActivity  implements FirebaseAuth.AuthStateListener{
     private static final String TAG = "NoteActivity";
@@ -36,6 +43,7 @@ public class NoteActivity extends AppCompatActivity  implements FirebaseAuth.Aut
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.Theme_AppCompat_Light);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
@@ -53,19 +61,27 @@ public class NoteActivity extends AppCompatActivity  implements FirebaseAuth.Aut
 
     private void showAlertDialog() {
 
-        LayoutInflater inflater=(LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+        final EditText noteEditText = new EditText(NoteActivity.this);
+
+        noteEditText.setHeight(150);
+        noteEditText.setClickable(true);
+        noteEditText.setSingleLine(true);
+        noteEditText.setCursorVisible(true);
+
+        noteEditText.setHighlightColor(Color.BLACK);
+
+
           new AlertDialog.Builder(this,R.style.MyDialogTheme)
 
                 .setTitle("Add a Note")
-                .setView(inflater.inflate(R.layout.alert_et,null))
-                .setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                  .setView(noteEditText)
+                  .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //dialogInterface.dismiss();
-                       /* Toast.makeText(NoteActivity.this, "poskik",Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, "onClick: working on posi");*/
-                       EditText noteEditText=findViewById(R.id.single);
-                       addNote(noteEditText.getText().toString());
+                       /* Toast.makeText(NoteActivity.this, "poskik",Toast.LENGTH_SHORT).show();*/
+                        Log.d(TAG, "onClick: working on posi " + noteEditText.getText().toString().trim());
+                       addNote(noteEditText.getText().toString().trim());
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -77,7 +93,9 @@ public class NoteActivity extends AppCompatActivity  implements FirebaseAuth.Aut
                         Log.d(TAG, "onClick: working on negi");
                     }
                 })
-                .create().show();
+
+                  .create()
+                  .show();
     }
 
     private void addNote(String text){
