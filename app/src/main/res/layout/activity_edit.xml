@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".EditActivity">
+
+    <Button
+        android:id="@+id/createButtonId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Create a new note "
+        android:background="@android:color/white"/>
+
+    <Button
+        android:id="@+id/readButtonId"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text=" Read note "
+        android:background="@android:color/white"/>
+
+    <Button
+        android:id="@+id/updateButtonId"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text=" Update note "
+        android:background="@android:color/white"/>
+
+    <Button
+        android:id="@+id/deleteButtonId"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text=" Delete note "
+        android:background="@android:color/white"/>
+
+    <Button
+        android:id="@+id/allNotesButtonId"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text=" Get all notes "
+        android:background="@android:color/white"/>
+
+   <!-- <Button
+        android:id="@+id/readButtonId"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text=" Read note "
+        android:background="@android:color/white"/>-->
+
+
+
+</LinearLayout>

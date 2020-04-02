@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg3"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ProfileActivity">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageId"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/man"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#656262"
+        />
+
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/dispalyNameTvId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:hint="Display Name"/>
+</com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/upProfileButtonID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="     Update Profile     "
+        android:onClick="updateProfile"
+        android:layout_marginTop="50dp"/>
+
+</LinearLayout>

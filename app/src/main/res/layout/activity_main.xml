@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg1"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="NotesApp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@android:dimen/app_icon_size"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view1"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_width="315dp"
+        android:layout_height="198dp"
+        android:scrollbarSize="40dp"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="main.json"
+        app:lottie_loop="true" />
+
+    <Button
+        android:id="@+id/loginButtonID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="LOGIN"
+        android:textStyle="bold"
+        android:layout_marginTop="130dp"/>
+
+    <TextView
+        android:id="@+id/registerTextViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Don't you have account here?Register now."
+        android:textColor="@android:color/white"
+        android:textSize="15sp"/>
+
+</LinearLayout>
